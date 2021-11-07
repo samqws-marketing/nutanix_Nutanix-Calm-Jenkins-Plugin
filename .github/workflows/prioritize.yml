@@ -49,7 +49,7 @@ jobs:
         echo Unified Agent downloaded successfully
         JARFILE=$(find ./ -type f -wholename "*/target/nutanix-calm.jar")
         echo $WARFILE will be added to appPath
-        java -jar wss-unified-agent.jar -appPath $JARFILE -d ./
+        java -jar wss-unified-agent.jar -appPath $JARFILE -d ./ -viaDebug true
     - name: 'Upload Prioritize Logs'
       uses: actions/upload-artifact@v2
       with:
