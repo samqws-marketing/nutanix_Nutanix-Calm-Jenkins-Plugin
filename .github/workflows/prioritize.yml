@@ -50,4 +50,13 @@ jobs:
         JARFILE=$(find ./ -type f -wholename "*/target/nutanix-calm.jar")
         echo $WARFILE will be added to appPath
         java -jar wss-unified-agent.jar -appPath $JARFILE -d ./
-        
+    - name: 'Upload Prioritize Logs'
+      uses: actions/upload-artifact@v2
+      with:
+        name: Prioritize-Logs
+        path: |
+          ${{github.workspace}}/whitesource
+          /tmp/whitesource*
+          /tmp/ws-ua*
+        retention-days: 1
+
